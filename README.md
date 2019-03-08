@@ -1,2 +1,8 @@
-# ci-saas
-for test ci service
+# junos-ci-frontend
+Dependencies
+
+$ npm install
+
+Run
+
+$ npm start

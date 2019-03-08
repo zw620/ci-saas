@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Junos CI Portal</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="stylesheets/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="stylesheets/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="stylesheets/skin-blue.min.css">
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="/alert" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b>LT</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Junos CI Portal</b> </span>
+    </a>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside id="side_bar" class="main-sidebar">
+
+            <section class="sidebar">
+              <!-- Sidebar user panel -->
+              <div class="user-panel">
+                <div class="pull-left image">
+                  <img src="images/avatar5.png" class="img-circle" alt="User Image">
+                </div>
+                <div class="pull-left info">
+              <p id="loggin_name"> </p>
+                  <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                </div>
+              </div>
+              <!-- search form -->
+              <form action="#" method="get" class="sidebar-form">
+                <div class="input-group">
+                  <input type="text" name="q" class="form-control" placeholder="Search...">
+                  <span class="input-group-btn">
+                  <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                  </button>
+                  </span>
+                </div>
+              </form>
+              <!-- /.search form -->
+              <!-- sidebar menu: : style can be found in sidebar.less -->
+              <ul class="sidebar-menu" data-widget="tree">
+                <li class="treeview">
+                  <a id="nav_alert" href="#">
+                  <i class="fa fa-warning"></i> <span>Dashboard</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a id="nav_watch" href="#">
+                  <i class="fa fa-binoculars"></i> <span>Jenkins Master</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a id="nav_relay" href="#">
+                  <i class="fa fa-paper-plane"></i> <span>Event Trial</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a id="nav_api" href="#">
+                  <i class="glyphicon glyphicon-check"></i> <span>Credentials</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-gears"></i> <span>Config</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    <ul class="treeview-menu">
+                      <li class="treeview">
+                        <a id="nav_datasource" href="#"><i class="fa fa-circle-o"></i> ?
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <a  href="#"><i class="fa fa-circle-o"></i> ?
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li><a id="nav_condition_prometheus" href="#"><i class="fa fa-check-square-o"></i> ?</a></li>
+                          <li><a id="nav_condition_elasticsearch" href="#"><i class="fa fa-square-o"></i> ?</a></li>
+                        </ul>
+                      </li>
+                      <li class="treeview">
+                        <a href="#"><i class="fa fa-circle-o"></i> Notification
+                          <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                          </span>
+                        </a>
+                        <ul class="treeview-menu">
+                          <li><a id="nav_notification_email" href="#"><i class="fa fa-check-square-o"></i> Email</a></li>
+                          <li><a id="nav_notification_webhook" href="#"><i class="fa fa-check-square-o"></i> Webhook</a></li>
+                          <li class="treeview">
+                              <a href="#"><i class="fa fa-check-square-o"></i> Pagerduty
+                              <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                              </span>
+                            </a>
+                            <ul class="treeview-menu">
+                              <li><a id="nav_pagerduty_v1" href="#"><i class="fa fa-at"></i> V1</a></li>
+                              <li><a id="nav_pagerduty_v2" href="#"><i class="fa fa-at"></i> V2</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </a>
+                </li>
+
+                <li class="treeview">
+                  <a id="nav_member" href="#">
+                    <i class="fa fa-users"></i> <span>Team</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a id="nav_statistics" href="#">
+                    <i class="fa fa-line-chart"></i> <span>statistics</span>
+                  </a>
+                </li>
+                <li class="treeview">
+                  <a href="#">
+                    <i class="fa fa-life-buoy"></i> <span>Help</span>
+                    <span class="pull-right-container">
+                      <i class="fa fa-angle-left pull-right"></i>
+                    </span>
+                    <ul class="treeview-menu">
+                      <li class="treeview"><a id="nav_help_document" href="#"><i class="fa fa-circle-o"></i> Document</a></li>
+                      <li class="treeview"><a id="nav_help_userguide" href="#"><i class="fa fa-circle-o"></i> User Guide</a></li>
+                    </ul>
+                  </a>
+                </li>
+              </ul>
+            </section>
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Jenkins Master
+      </h1>
+      <!--<ol class="breadcrumb">-->
+        <!--<li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>-->
+        <!--<li class="active">Config</li>-->
+        <!--<li class="active">Condition</li>-->
+        <!--<li class="active">Prometheus</li>-->
+      <!--</ol>-->
+    </section>
+    <!-- Main content -->
+    <section class="content">
+      <!-- add applicatons -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="callout callout-info">
+            <h4>Reminder</h4>
+            <p>
+              Create your Jenkins Master here.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-info">
+            <div class="box-header">
+              <h3 class="box-title">Jenkins Master Configuration</h3>
+              <a id="ds_reset" href="#" onclick="reset_form()" class="text-muted"><i class="glyphicon glyphicon-refresh pull-right"></i></a>
+            </div>
+            <form id="form_master_all" class="form-horizontal">
+              <div class="box-body">
+                <div id="div_name" class="form-group">
+                  <label class="col-sm-2 control-label">Name*</label>
+                  <div class="col-sm-5">
+                        <input id="form_name" type="text" class="form-control" v-model="name" placeholder="Only characters and numbers are allowed">
+                  </div>
+                </div>
+                <div id="div_username" class="form-group">
+                  <label class="col-sm-2 control-label">User Name*</label>
+                  <div class="col-sm-5">
+                    <input id="form_username" type="text" class="form-control" placeholder="Only characters and numbers are allowed">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Authentication Type*</label>
+                  <div class="col-sm-5">
+                    <select id="form_authtype" class="form-control select2 " style="width: 100%;">
+                      <option selected="selected"><em> </em></option>
+                      <option>Password</option>
+                      <option>SSH Public Key</option>
+                    </select>
+                  </div>
+                </div>
+                <div id="div_password" class="form-group" v-show="pwd_seen">
+                  <label class="col-sm-2 control-label">Password*</label>
+                  <div class="col-sm-5">
+                    <input id="form_password" type="text" class="form-control" placeholder="">
+                  </div>
+                </div>
+                <!--<div id="div_sshkey" class="form-group" v-show="seen">-->
+                  <!--<label for="form_desc" class="col-sm-2 control-label">SSH Public Key*</label>-->
+                  <!--<div class="col-sm-10">-->
+                    <!--<input id="form_sshkey" type="text" class="form-control" placeholder="<Paste your public key here>">-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div id="div_sshkey" class="form-group" v-show="ssh_seen">
+                  <label class="col-sm-2 control-label">SSH Public Key*</label>
+                  <div class="col-sm-5">
+                    <textarea id="form_sshkey" class="form-control" rows="3" placeholder="<Paste your public key here>"></textarea>
+                  </div>
+                </div>
+              <!--  <div id="form_div_desc" class="form-group">
+                  <label for="form_desc" class="col-sm-2 control-label">IP/Host*</label>
+                  <div class="col-sm-10">
+                        <input id="form_ip" type="text" class="form-control">
+                  </div>
+                </div>
+                <div id="div_port" class="form-group">
+                  <label for="form_desc" class="col-sm-2 control-label">Port</label>
+                  <div class="col-sm-10">
+                        <input id="form_port" type="text" class="form-control">
+                  </div>
+                </div>-->
+                <!--<div class="form-group">-->
+                  <!--<label for="ds_type" class="col-sm-2 control-label">Method*</label>-->
+                  <!--<div class="col-sm-5">-->
+                    <!--<select id="form_method" class="form-control select2 " style="width: 100%;">-->
+                      <!--<option selected="selected"><em> </em></option>-->
+                      <!--<option>GET</option>-->
+                      <!--<option>POST</option>-->
+                      <!--<option>PUT</option>-->
+                        <!--<option>DELETE</option>-->
+                    <!--</select>-->
+                  <!--</div>-->
+                <!--</div>-->
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Resource Group*</label>
+                  <div class="radio">
+                    <label><input type="radio" name="group_radios" id="form_newgroup" value="newgroup" checked>Create new</label>
+                    <label><input type="radio" name="group_radios" id="form_existgroup" value="existgroup">Use existing</label>
+                  </div>
+                </div>
+                <div id="div_createnew" class="form-group" v-show="new_seen">
+                  <label class="col-sm-2 control-label"></label>
+                  <div class="col-sm-5">
+                    <input id="form_createnew" type="text" class="form-control" v-model="rgroup" placeholder="Only characters and numbers are allowed" >
+                  </div>
+                </div>
+                <div id="div_useexist" class="form-group" v-show="exist_seen">
+                  <label class="col-sm-2 control-label"></label>
+                  <div class="col-sm-5">
+                    <select id="form_useexist" class="form-control select2 " style="width: 100%;">
+                      <option selected="selected"><em> </em></option>
+                    </select>
+                  </div>
+                </div>
+                <div id="div_cpu" class="form-group">
+                  <label class="col-sm-2 control-label">CPU* </label>
+                  <div class="col-sm-5">
+                    <input id="form_cpu" type="text" class="form-control" v-model="cpu" placeholder="CPU core number" >
+                  </div>
+                </div>
+                <div id="div_memory" class="form-group">
+                  <label class="col-sm-2 control-label">Memory(MB)* </label>
+                  <div class="col-sm-5">
+                    <input id="form_memory" type="text" class="form-control" v-model="memory" placeholder="Memory size in MB" >
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="col-sm-2 control-label">Jenkins Release Type*</label>
+                  <div class="col-sm-5">
+                    <select id="form_releasetype" class="form-control select2 " v-model="release" style="width: 100%;">
+                      <option selected="selected"><em> </em></option>
+                      <option>LTS</option>
+                      <option>Weekly Build</option>
+                    </select>
+                  </div>
+                </div>
+                 <div id="app_div_list" class="form-group">
+                      <label for="inputEmail3" class="col-sm-2 control-label"></label>
+                           <div class="col-sm-5">
+                             <ul id= "notification_list" class="todo-list">
+                              </ul>
+                           </div> 
+                     </div> 
+             </div>
+              <!-- /.box-body -->
+              <div class="box-footer">
+                <input id="form_btn_save" type="button" class="btn btn-info pull-right" v-on:click="save_master()" value="Save"/>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+          </div>
+          <!-- Custom Tabs -->
+
+        </div>
+      </div>
+      <!-- Main row -->
+
+    </section>
+    <!-- /.content -->
+
+    <!-- /.content -->
+  </div>
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Cloud-Pi
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2019 <a href="#">SRC-Beijing</a>.</strong> All rights reserved.
+  </footer>
+
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="javascripts/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="javascripts/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="javascripts/adminlte.min.js"></script>
+<!-- Vue <script src="https://unpkg.com/vue/dist/vue.js"></script> -->
+<script src="javascripts/vue.js"></script>
+<!-- vue-router <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script> -->
+<script src="javascripts/vue-router.js"></script>
+<!-- axios -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+<script src="javascripts/jwt-decode.min.js"></script>  
+    <script src="javascripts/common.js"></script>  
+    <script>
+      var v_form = new Vue({
+        el: '#form_master_all',
+        data: {
+          pwd_seen: false,
+          ssh_seen: true,
+          new_seen: true,
+          exist_seen: false,
+          name: '',
+          rgroup: '',
+          cpu: '',
+          memory: '',
+          release: ''
+        },
+        methods: {
+          save_master: function() {
+            //alert(this.release);
+            axios.post(backend_url + '/jenkinsmaster',{
+              name: this.name,
+              rgroup: this.rgroup,
+              cpu: this.cpu,
+              memory: this.memory,
+              release: this.release
+            })
+            .then(function (response){
+              if(response.data=="success"){
+                alert("Success! Pls use http://148.78.57.137:443/ to access your jenkins master.");
+              }
+              console.log(response);
+            })
+            .catch(function (error){
+              console.log(error);
+            });
+          }
+        }
+      });
+
+    </script>
+</body>
+</html>
+
+
+
